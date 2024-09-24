@@ -1,0 +1,41 @@
+/* General styles */
+.form_title {
+  font-size: 28px;
+  color: #f5f5f5;
+}
+
+label {
+  font-size: 20px;
+  color: #f5f5f5;
+  border: 2px solid blue;
+}
+
+button {
+  background-color: #f5f5f5;
+  color: #000000;
+  cursor: pointer;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 2px solid red;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  outline: none;
+}
