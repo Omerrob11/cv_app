@@ -5,8 +5,16 @@ export default function PersonalInfo() {
     <form className="form_container">
       <h2 className="form_title">Personal Information:</h2>
       <div className="input_container">
-        <label htmlFor="full_name">Full Name</label>
+        <label htmlFor="full_name">Full Name:</label>
         <input type="text" id="full_name" />
+      </div>
+      <div className="input_container">
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" />
+      </div>
+      <div className="input_container">
+        <label htmlFor="tel">Tel:</label>
+        <input type="tel" id="tel" />
       </div>
 
       <button type="submit">Save</button>
