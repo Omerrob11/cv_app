@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 import PersonalInfo from "./components/Personal-info";
 import "./index.css";
 function RenderContent(props) {
@@ -8,6 +9,6 @@ function RenderContent(props) {
 }
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <PersonalInfo />
+    <App />
   </StrictMode>
 );
