@@ -1,7 +1,11 @@
-function Footer({ inputsData }) {
+function Footer({ inputsDataObj }) {
   return (
     <div className="footer">
-      <h1>lol</h1>
+      <div className="form_show">
+        {/* {inputsData.map((input) => (
+          <p id={input.id}></p>
+        ))} */}
+      </div>
     </div>
   );
 }
