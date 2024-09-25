@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/form-style.css";
 
 import FormHeader from "./form-comp/heafForm";
+import FormInputs from "./form-comp/formInputs";
 
 export default function PersonalInfo({ handlePersonalInfoChanges }) {
   const [inputValues, setInputValues] = useState({
@@ -75,33 +76,7 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
           handlePersonalInfoChanges({ ...inputValues });
         }}
       >
-        <div className="input_container">
-          <label htmlFor="full_name">Full Name:</label>
-          <input
-            type="text"
-            id="full_name"
-            value={inputValues.name}
-            onChange={getInputHandler("name")}
-          />
-        </div>
-        <div className="input_container">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={inputValues.email}
-            onChange={getInputHandler("email")}
-          />
-        </div>
-        <div className="input_container">
-          <label htmlFor="tel">Tel:</label>
-          <input
-            type="tel"
-            id="tel"
-            value={inputValues.tel}
-            onChange={getInputHandler("tel")}
-          />
-        </div>
+        <FormInputs inputsArr={inputsConfig} />
 
         <button type="submit">Save</button>
       </form>
