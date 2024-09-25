@@ -3,6 +3,7 @@ import "../styles/form-style.css";
 
 import FormHeader from "./form-comp/heafForm";
 import FormInputs from "./form-comp/formInputs";
+import { SaveButton } from "./form-comp/buttons";
 
 export default function PersonalInfo({ handlePersonalInfoChanges }) {
   const [inputValues, setInputValues] = useState({
@@ -77,8 +78,7 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
         }}
       >
         <FormInputs inputsArr={inputsConfig} />
-
-        <button type="submit">Save</button>
+        <SaveButton />
       </form>
     </div>
   );
