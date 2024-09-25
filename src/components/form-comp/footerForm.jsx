@@ -1,10 +1,15 @@
-function Footer({ inputsDataObj }) {
+function Footer({ inputsDataArr }) {
+  console.log(inputsDataArr);
   return (
     <div className="footer">
       <div className="form_show">
-        {/* {inputsData.map((input) => (
-          <p id={input.id}></p>
-        ))} */}
+        {inputsDataArr.map((obj) => {
+          const correctKey = Object.keys(obj).filter((key) => key !== "id");
+
+          //   const propertyIdentifer = obj.filed;
+          //   return <p key={obj.id}>{obj[propertyIdentifer]}</p>;
+          return <p key={obj.id}>{obj[correctKey]}</p>;
+        })}
       </div>
     </div>
   );
