@@ -5,6 +5,7 @@ import FormHeader from "./form-comp/heafForm";
 
 export default function PersonalInfo({ handlePersonalInfoChanges }) {
   const [inputValues, setInputValues] = useState({
+    id: crypto.randomUUID(),
     name: "",
     email: "",
     tel: "",
@@ -31,6 +32,38 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       setInputValues({ ...inputValues, [name]: event.target.value });
     };
   };
+  const inputsConfig = [
+    {
+      name: "name",
+      type: "text",
+      id: "full_name",
+      label: "full_name",
+      placeholder: "Enter your name",
+      text: "Full Name:",
+      value: inputValues.name,
+      onChange: getInputHandler("name"),
+    },
+    {
+      name: "email",
+      type: "email",
+      id: "email",
+      label: "email",
+      placeholder: "Enter your email",
+      text: "Email:",
+      value: inputValues.email,
+      onChange: getInputHandler("email"),
+    },
+    {
+      name: "tel",
+      type: "tel",
+      id: "tel",
+      label: "tel",
+      placeholder: "Enter your tel number",
+      text: "Tel:",
+      value: inputValues.tel,
+      onChange: getInputHandler("tel"),
+    },
+  ];
 
   return (
     <div className="information_component">
@@ -38,7 +71,6 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       <form
         className="form_container"
         onSubmit={(e) => {
-          console.log("sss");
           e.preventDefault();
           handlePersonalInfoChanges({ ...inputValues });
         }}
