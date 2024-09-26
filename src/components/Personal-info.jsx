@@ -42,7 +42,6 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
         index === i ? { ...obj, [name]: event.target.value } : obj
       );
       setInputValues(updatedInputsValues);
-      //   setInputValues({ ...inputValues, [name]: event.target.value });
     };
   };
 
@@ -83,21 +82,19 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
     },
   ];
 
+  function toggleForm() {
+    !showForm ? setShowForm(true) : setShowForm(false);
+  }
+
   return (
     <div className="information_component">
-      <FormHeader
-        title={title}
-        icon={headingIcon}
-        setShowForm={setShowForm}
-        showForm={showForm}
-      />
+      <FormHeader title={title} icon={headingIcon} toggleForm={toggleForm} />
       {showForm && (
         <form
           className="form_container"
           onSubmit={(e) => {
             e.preventDefault();
             handlePersonalInfoChanges({ ...inputValues });
-
             setSubmittedValues([...inputValues]);
             setShowForm(false);
             if (!isSubmitted) {
@@ -111,7 +108,9 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       )}
 
       {/* Conditionally render footer */}
-      {isSubmitted && <Footer inputsDataArr={submittedValues} />}
+      {isSubmitted && (
+        <Footer inputsDataArr={submittedValues} toggleForm={toggleForm} />
+      )}
     </div>
   );
 }

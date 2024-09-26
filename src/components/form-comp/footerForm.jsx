@@ -1,4 +1,4 @@
-function Footer({ inputsDataArr }) {
+function Footer({ inputsDataArr, toggleForm }) {
   return (
     <div className="footer">
       <div className="form_show">
@@ -11,7 +11,9 @@ function Footer({ inputsDataArr }) {
         })}
       </div>
 
-      <button className="edit">Edit</button>
+      <button className="edit" onClick={toggleForm}>
+        Edit
+      </button>
     </div>
   );
 }
