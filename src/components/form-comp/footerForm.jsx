@@ -11,6 +11,8 @@ function Footer({ inputsDataArr }) {
           return <p key={obj.id}>{obj[correctKey]}</p>;
         })}
       </div>
+
+      <button className="edit">Edit</button>
     </div>
   );
 }
