@@ -94,7 +94,7 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
           className="form_container"
           onSubmit={(e) => {
             e.preventDefault();
-            handlePersonalInfoChanges({ ...inputValues });
+            handlePersonalInfoChanges([...inputValues]);
             setSubmittedValues([...inputValues]);
             setShowForm(false);
             if (!isSubmitted) {
