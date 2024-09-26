@@ -4,14 +4,17 @@ import "../styles/form-style.css";
 import FormHeader from "./form-comp/heafForm";
 import FormInputs from "./form-comp/formInputs";
 import { SaveButton } from "./form-comp/buttons";
+import Footer from "./form-comp/footerForm";
 
 export default function PersonalInfo({ handlePersonalInfoChanges }) {
-  const [inputValues, setInputValues] = useState({
-    id: crypto.randomUUID(),
-    name: "",
-    email: "",
-    tel: "",
-  });
+  const [inputValues, setInputValues] = useState([
+    { name: "", id: crypto.randomUUID() },
+    { email: "", id: crypto.randomUUID() },
+    { tel: "", id: crypto.randomUUID() },
+  ]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedValues, setSubmittedValues] = useState({});
+  const [isArrowActive, setIsArrowActive] = useState(false);
 
   const title = "Personal Information";
   const headingIcon = (
@@ -29,11 +32,24 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
     </svg>
   );
 
-  const getInputHandler = (name) => {
+  const getInputHandler = (name, index) => {
     return (event) => {
-      setInputValues({ ...inputValues, [name]: event.target.value });
+      // the object to be updated, we create new array
+      // than, we update the object name
+      // meaning - we get the index of the object, than, change it's property name value
+      // to the value of the event.target.value - the new input
+      const updatedInputsValues = inputValues.map((obj, i) =>
+        index === i ? { ...obj, [name]: event.target.value } : obj
+      );
+      setInputValues(updatedInputsValues);
+      //   setInputValues({ ...inputValues, [name]: event.target.value });
     };
   };
+
+  function getObjectIndex(name) {
+    //object.keys return me the keysof the object.
+    return inputValues.findIndex((obj) => Object.keys(obj).includes(name));
+  }
   const inputsConfig = [
     {
       name: "name",
@@ -42,8 +58,8 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       label: "full_name",
       placeholder: "Enter your name",
       text: "Full Name:",
-      value: inputValues.name,
-      onChange: getInputHandler("name"),
+      value: inputValues[getObjectIndex("name")].name,
+      onChange: getInputHandler("name", getObjectIndex("name")),
     },
     {
       name: "email",
@@ -52,8 +68,8 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       label: "email",
       placeholder: "Enter your email",
       text: "Email:",
-      value: inputValues.email,
-      onChange: getInputHandler("email"),
+      value: inputValues[getObjectIndex("email")].email,
+      onChange: getInputHandler("email", getObjectIndex("email")),
     },
     {
       name: "tel",
@@ -62,24 +78,45 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       label: "tel",
       placeholder: "Enter your tel number",
       text: "Tel:",
-      value: inputValues.tel,
-      onChange: getInputHandler("tel"),
+      value: inputValues[getObjectIndex("tel")].tel,
+      onChange: getInputHandler("tel", getObjectIndex("tel")),
     },
   ];
 
   return (
     <div className="information_component">
-      <FormHeader title={title} icon={headingIcon} />
-      <form
-        className="form_container"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handlePersonalInfoChanges({ ...inputValues });
-        }}
-      >
-        <FormInputs inputsArr={inputsConfig} />
-        <SaveButton />
-      </form>
+      <FormHeader
+        title={title}
+        icon={headingIcon}
+        setIsArrowActive={setIsArrowActive}
+        isArrowActive={isArrowActive}
+      />
+      {isArrowActive && (
+        <form
+          className="form_container"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handlePersonalInfoChanges({ ...inputValues });
+
+            setSubmittedValues([...inputValues]);
+            setIsArrowActive(false);
+            if (!isSubmitted) {
+              setIsSubmitted(true);
+            }
+          }}
+        >
+          <FormInputs inputsArr={inputsConfig} />
+          <SaveButton />
+        </form>
+      )}
+
+      {/* Conditionally render footer */}
+      {isSubmitted && <Footer inputsDataArr={submittedValues} />}
     </div>
   );
 }
+
+// things i can do:
+// make the inputs config a function, that create it for each new form
+// make the form a component
+// state: make sure the state is with all the state-standards
