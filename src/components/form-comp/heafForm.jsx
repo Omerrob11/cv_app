@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function FormHeader({ icon, title, setIsArrowActive, isArrowActive }) {
+function FormHeader({ icon, title, setShowForm, showForm }) {
   function handleArrowToggle(event) {
     console.log(event);
-    !isArrowActive ? setIsArrowActive(true) : setIsArrowActive(false);
+    !showForm ? setShowForm(true) : setShowForm(false);
   }
 
   return (

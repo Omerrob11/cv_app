@@ -1,5 +1,4 @@
 function Footer({ inputsDataArr }) {
-  console.log(inputsDataArr);
   return (
     <div className="footer">
       <div className="form_show">

@@ -14,7 +14,7 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
   ]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedValues, setSubmittedValues] = useState({});
-  const [isArrowActive, setIsArrowActive] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const title = "Personal Information";
   const headingIcon = (
@@ -88,10 +88,10 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
       <FormHeader
         title={title}
         icon={headingIcon}
-        setIsArrowActive={setIsArrowActive}
-        isArrowActive={isArrowActive}
+        setShowForm={setShowForm}
+        showForm={showForm}
       />
-      {isArrowActive && (
+      {showForm && (
         <form
           className="form_container"
           onSubmit={(e) => {
@@ -99,7 +99,7 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
             handlePersonalInfoChanges({ ...inputValues });
 
             setSubmittedValues([...inputValues]);
-            setIsArrowActive(false);
+            setShowForm(false);
             if (!isSubmitted) {
               setIsSubmitted(true);
             }
