@@ -6,7 +6,7 @@ function ShowCv({ personalData, title }) {
       <h2>{title}</h2>
       {personalData.map((data, index) => {
         const personalDataKeys = Object.keys(data);
-        // ,getting the correct key, using filter
+        // getting the correct key, using filter
         const properKey = personalDataKeys.filter((key) => key !== "id");
 
         console.log(properKey);
