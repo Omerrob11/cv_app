@@ -11,6 +11,11 @@ function App() {
   const [personalData, setPersonalData] = useState([]);
   const [educationData, setEducationData] = useState([]);
 
+  function handleEducationInfoChanges(data) {
+    // assumming we get a new reference, not the actual state
+    setEducationData(data);
+  }
+
   function handlePersonalInfoChanges(data) {
     console.log(data);
     // data should be a new object, so we are not mutating state
