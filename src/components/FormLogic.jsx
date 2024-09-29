@@ -1,12 +1,10 @@
 import { useState } from "react";
 
-export default function useFormLogic({
-  initalValues,
-  handlePersonalInfoChanges,
-}) {
-  const [inputValues, setInputValues] = useState(() =>
-    initalInputs.map((input) => ({ ...input }))
-  );
+export default function useFormLogic(initalInputs, handlePersonalInfoChanges) {
+  const [inputValues, setInputValues] = useState(() => {
+    console.log(initalInputs);
+    return initalInputs.map((input) => ({ ...input }));
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedValues, setSubmittedValues] = useState({});
   const [showForm, setShowForm] = useState(false);

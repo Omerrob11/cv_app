@@ -1,5 +1,8 @@
 import useFormLogic from "./FormLogic";
 import FormHeader from "./form-comp/heafForm";
+import FormInputs from "./form-comp/formInputs";
+import { SaveButton } from "./form-comp/buttons";
+import Footer from "./form-comp/footerForm";
 
 function PersonalInfo2({ handlePersonalInfoChanges }) {
   const initalInputs = [
@@ -17,7 +20,7 @@ function PersonalInfo2({ handlePersonalInfoChanges }) {
     getObjectIndex,
     handleSubmit,
     toggleForm,
-  } = useFormLogic(initialInputs, handlePersonalInfoChanges);
+  } = useFormLogic(initalInputs, handlePersonalInfoChanges);
 
   const title = "Personal Information";
   const headingPerosnalInformationIcon = (
@@ -34,6 +37,38 @@ function PersonalInfo2({ handlePersonalInfoChanges }) {
       />
     </svg>
   );
+  const inputsConfig = [
+    {
+      name: "name",
+      type: "text",
+      id: "full_name",
+      label: "full_name",
+      placeholder: "Enter your name",
+      text: "Full Name:",
+      value: inputValues[getObjectIndex("name")].name,
+      onChange: getInputHandler("name", getObjectIndex("name")),
+    },
+    {
+      name: "email",
+      type: "email",
+      id: "email",
+      label: "email",
+      placeholder: "Enter your email",
+      text: "Email:",
+      value: inputValues[getObjectIndex("email")].email,
+      onChange: getInputHandler("email", getObjectIndex("email")),
+    },
+    {
+      name: "tel",
+      type: "tel",
+      id: "tel",
+      label: "tel",
+      placeholder: "Enter your tel number",
+      text: "Tel:",
+      value: inputValues[getObjectIndex("tel")].tel,
+      onChange: getInputHandler("tel", getObjectIndex("tel")),
+    },
+  ];
 
   return (
     <div className="information_component">
@@ -44,25 +79,20 @@ function PersonalInfo2({ handlePersonalInfoChanges }) {
         toggleForm={toggleForm}
       />
       {showForm && (
-        <form
-          className="form_container"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handlePersonalInfoChanges([...inputValues]);
-            setSubmittedValues([...inputValues]);
-            setShowForm(false);
-            if (!isSubmitted) {
-              setIsSubmitted(true);
-            }
-          }}
-        >
+        <form className="form_container" onSubmit={handleSubmit}>
           <FormInputs inputsArr={inputsConfig} />
           <SaveButton />
         </form>
       )}
+
+      {isSubmitted && (
+        <Footer inputsDataArr={submittedValues} toggleForm={toggleForm} />
+      )}
     </div>
   );
 }
+
+export default PersonalInfo2;
 
 // DECONSTRUCTING PATTERN:
 //name of the assigment should match the property names in the returned object
