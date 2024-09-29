@@ -38,7 +38,7 @@ export default function Education() {
     // handler for input
     // for each input, we return a handler (function)
     // updating the correct inputs, and returning the others.
-    // then, update the state for the new array
+    // then, update the state for the new array s
     return (event) => {
       const updateInputsValues = inputValues.map((obj, i) =>
         index === i ? { ...obj, [name]: event.target.value } : obj
