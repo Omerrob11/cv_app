@@ -1,6 +1,16 @@
 import { useState } from "react";
 
-export default function useFormLogic() {
+export default function useFormLogic({
+  initalValues,
+  handlePersonalInfoChanges,
+}) {
+  const [inputValues, setInputValues] = useState(() =>
+    initalInputs.map((input) => ({ ...input }))
+  );
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedValues, setSubmittedValues] = useState({});
+  const [showForm, setShowForm] = useState(false);
+
   const getInputHandler = (name, index) => {
     return (event) => {
       const updatedInputsValues = inputValues.map((obj, i) =>
@@ -18,6 +28,35 @@ export default function useFormLogic() {
   function toggleForm() {
     !showForm ? setShowForm(true) : setShowForm(false);
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const deepCopyOfInputValuesOne = inputValues.map((input) => {
+      ({ ...input });
+    });
+    handlePersonalInfoChanges(deepCopyOfInputValues);
+    const deepCopyOfInputValuesTwo = inputValues.map((input) => {
+      ({ ...input });
+    });
+    // im not sure we need it
+    // because it's already updated maybe?
+    setSubmittedValues(deepCopyOfInputValuesTwo);
+    setShowForm(false);
+    if (!isSubmitted) {
+      setIsSubmitted(true);
+    }
+  }
+
+  return {
+    inputValues,
+    isSubmitted,
+    submittedValues,
+    showForm,
+    getInputHandler,
+    getObjectIndex,
+    handleSubmit,
+    toggleForm,
+  };
 }
 
 // one for the form logic.
@@ -25,3 +64,12 @@ export default function useFormLogic() {
 // one for the config?
 // we want that the state here, will be updated.
 // or - we can put the state in the hooks maybe? and change it there?
+
+// using custom hooks:
+// is to take the rendering logic, make it reusable.
+// meaning - the component that use it is not responsbile for the logic
+
+// meaning:
+// custom hooks are managing the state
+// component that use that are focusing on the UI - not cared about how the state is managed.
+//custom hooks should manage the state!
