@@ -114,8 +114,3 @@ export default function PersonalInfo({ handlePersonalInfoChanges }) {
     </div>
   );
 }
-
-// things i can do:
-// make the inputs config a function, that create it for each new form
-// make the form a component
-// state: make sure the state is with all the state-standards

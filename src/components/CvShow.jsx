@@ -9,8 +9,6 @@ function ShowCv({ personalData, title }) {
         // getting the correct key, using filter
         const properKey = personalDataKeys.filter((key) => key !== "id");
 
-        console.log(properKey);
-
         return (
           <div key={data.id}>
             <p>

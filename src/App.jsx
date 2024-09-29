@@ -9,6 +9,7 @@ function App() {
   // this is empty array for the PesronalData on save
   // in the pesronal data, the state is for the inputs
   const [personalData, setPersonalData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
 
   function handlePersonalInfoChanges(data) {
     console.log(data);
