@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ShowCv from "./components/CvShow";
 import PersonalInfo from "./components/Personal-info";
+import Education from "./components/Education";
 
 function App() {
   // it's an array at the end - so, needs to changes it to array.
@@ -17,15 +18,21 @@ function App() {
   }
 
   function handlePersonalInfoChanges(data) {
-    console.log(data);
     // data should be a new object, so we are not mutating state
     setPersonalData(data);
   }
 
   return (
     <>
-      <ShowCv personalData={personalData} title="Personal Information" />
+      {personalData.length > 0 && (
+        <ShowCv compData={personalData} title="Personal Information" />
+      )}
+      {educationData.length > 0 && (
+        <ShowCv compData={educationData} title="Education Information" />
+      )}
+
       <PersonalInfo handlePersonalInfoChanges={handlePersonalInfoChanges} />
+      <Education handleEducationInfoChanges={handleEducationInfoChanges} />
     </>
   );
 }

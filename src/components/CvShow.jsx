@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function ShowCv({ personalData, title }) {
+function ShowCv({ compData, title }) {
   return (
-    <div>
+    <div className="personal_data">
       <h2>{title}</h2>
-      {personalData.map((data, index) => {
+      {compData.map((data, index) => {
         const personalDataKeys = Object.keys(data);
         // getting the correct key, using filter
         const properKey = personalDataKeys.filter((key) => key !== "id");
