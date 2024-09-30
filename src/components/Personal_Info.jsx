@@ -5,7 +5,7 @@ import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
 import "../styles/form-style.css";
 
-function PersonalInfo2({ handlePersonalInfoChanges }) {
+function PersonalInfo({ handlePersonalInfoChanges }) {
   const initialInputs = [
     { name: "", id: crypto.randomUUID() },
     { email: "", id: crypto.randomUUID() },
@@ -93,7 +93,7 @@ function PersonalInfo2({ handlePersonalInfoChanges }) {
   );
 }
 
-export default PersonalInfo2;
+export default PersonalInfo;
 
 // DECONSTRUCTING PATTERN:
 //name of the assigment should match the property names in the returned object
