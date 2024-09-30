@@ -4,6 +4,7 @@ import FormInputs from "./form-comp/formInputs";
 import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
 import "../styles/form-style.css";
+import { SvgIcon } from "./SvgIcon";
 
 function PersonalInfo({ handlePersonalInfoChanges }) {
   const initialInputs = [
@@ -24,20 +25,8 @@ function PersonalInfo({ handlePersonalInfoChanges }) {
   } = useFormLogic(initialInputs, handlePersonalInfoChanges);
 
   const title = "Personal Information";
-  const headingPerosnalInformationIcon = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      className="icon"
-    >
-      <path
-        className="icon"
-        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-10 1.67-10 5v2h20v-2c0-3.33-6.69-5-10-5z"
-      />
-    </svg>
-  );
+
+  // const secondHeaing = () => <SvgIcon name="personalInfo" />;
   const inputsConfig = [
     {
       name: "name",
@@ -71,11 +60,13 @@ function PersonalInfo({ handlePersonalInfoChanges }) {
     },
   ];
 
+  const HeadingPersonalInformationIcon = () => <SvgIcon name="personalInfo" />;
+
   return (
     <div className="information_component">
       <FormHeader
         title={title}
-        icon={headingPerosnalInformationIcon}
+        icon={<HeadingPersonalInformationIcon />}
         // show form, we show it based on is value
         toggleForm={toggleForm}
       />
