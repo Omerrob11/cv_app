@@ -38,7 +38,7 @@ export default function Experience(handleExperienceInfoChanges) {
       placeholder: "Enter your job Title",
       text: "JobTitle",
       value: inputValues[getObjectIndex("jobTitle")].jobTitle,
-      onChange: getInputHandler("name", getObjectIndex("name")),
+      onChange: getInputHandler("jobTitle", getObjectIndex("jobTitle")),
     },
     {
       name: "startDate",
