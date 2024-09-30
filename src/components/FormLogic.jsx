@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useFormLogic(initialInputs, handlePersonalInfoChanges) {
+export default function useFormLogic(initialInputs, handleInfoChanges) {
   const [inputValues, setInputValues] = useState(() => {
     return initialInputs.map((input) => ({ ...input }));
   });
@@ -30,7 +30,7 @@ export default function useFormLogic(initialInputs, handlePersonalInfoChanges) {
     e.preventDefault();
     const deepCopyOfInputValuesOne = inputValues.map((input) => ({ ...input }));
 
-    handlePersonalInfoChanges(deepCopyOfInputValuesOne);
+    handleInfoChanges(deepCopyOfInputValuesOne);
     const deepCopyOfInputValuesTwo = inputValues.map((input) => ({ ...input }));
     // im not sure we need it
     // because it's already updated maybe?

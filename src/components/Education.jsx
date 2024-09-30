@@ -55,7 +55,7 @@ export default function Education({ handleEducationInfoChanges }) {
         label: "degree",
         placeholder: "Enter your degree",
         text: "Degree:",
-        value: inputValues[getObjectIndex("degree")].name,
+        value: inputValues[getObjectIndex("degree")].degree,
         onChange: getInputHandler("degree", getObjectIndex("degree")),
       },
       {
