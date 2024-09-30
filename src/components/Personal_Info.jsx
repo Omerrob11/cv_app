@@ -26,7 +26,6 @@ function PersonalInfo({ handlePersonalInfoChanges }) {
 
   const title = "Personal Information";
 
-  // const secondHeaing = () => <SvgIcon name="personalInfo" />;
   const inputsConfig = [
     {
       name: "name",

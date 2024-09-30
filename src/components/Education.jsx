@@ -3,6 +3,7 @@ import FormHeader from "./form-comp/heafForm";
 import FormInputs from "./form-comp/formInputs";
 import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
+import { SvgIcon } from "./SvgIcon";
 
 export default function Education({ handleEducationInfoChanges }) {
   const [inputValues, setInputValues] = useState([
@@ -19,20 +20,6 @@ export default function Education({ handleEducationInfoChanges }) {
   const [showForm, setShowForm] = useState(false);
 
   const title = "Education";
-  const headingEducationIcon = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      className="icon"
-    >
-      <path
-        className="icon"
-        d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
-      />
-    </svg>
-  );
 
   const getInputHandler = (name, index) => {
     // handler for input
@@ -125,7 +112,7 @@ export default function Education({ handleEducationInfoChanges }) {
     <div className="educationComponent">
       <FormHeader
         title={title}
-        icon={headingEducationIcon}
+        icon={<SvgIcon name="education" />}
         toggleForm={toggleForm}
       />
 
