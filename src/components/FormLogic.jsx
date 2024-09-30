@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-export default function useFormLogic(initalInputs, handlePersonalInfoChanges) {
+export default function useFormLogic(initialInputs, handlePersonalInfoChanges) {
   const [inputValues, setInputValues] = useState(() => {
-    console.log(initalInputs);
-    return initalInputs.map((input) => ({ ...input }));
+    return initialInputs.map((input) => ({ ...input }));
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedValues, setSubmittedValues] = useState({});
@@ -29,13 +28,10 @@ export default function useFormLogic(initalInputs, handlePersonalInfoChanges) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const deepCopyOfInputValuesOne = inputValues.map((input) => {
-      ({ ...input });
-    });
-    handlePersonalInfoChanges(deepCopyOfInputValues);
-    const deepCopyOfInputValuesTwo = inputValues.map((input) => {
-      ({ ...input });
-    });
+    const deepCopyOfInputValuesOne = inputValues.map((input) => ({ ...input }));
+
+    handlePersonalInfoChanges(deepCopyOfInputValuesOne);
+    const deepCopyOfInputValuesTwo = inputValues.map((input) => ({ ...input }));
     // im not sure we need it
     // because it's already updated maybe?
     setSubmittedValues(deepCopyOfInputValuesTwo);

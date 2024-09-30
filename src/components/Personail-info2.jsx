@@ -5,7 +5,7 @@ import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
 
 function PersonalInfo2({ handlePersonalInfoChanges }) {
-  const initalInputs = [
+  const initialInputs = [
     { name: "", id: crypto.randomUUID() },
     { email: "", id: crypto.randomUUID() },
     { tel: "", id: crypto.randomUUID() },
@@ -20,7 +20,7 @@ function PersonalInfo2({ handlePersonalInfoChanges }) {
     getObjectIndex,
     handleSubmit,
     toggleForm,
-  } = useFormLogic(initalInputs, handlePersonalInfoChanges);
+  } = useFormLogic(initialInputs, handlePersonalInfoChanges);
 
   const title = "Personal Information";
   const headingPerosnalInformationIcon = (
