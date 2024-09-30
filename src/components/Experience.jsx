@@ -3,6 +3,7 @@ import FormHeader from "./form-comp/heafForm";
 import FormInputs from "./form-comp/formInputs";
 import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
+import { SvgIcon } from "./SvgIcon";
 import "../styles/form-style.css";
 
 export default function Experience({ handleExperienceInfoChanges }) {
@@ -25,7 +26,6 @@ export default function Experience({ handleExperienceInfoChanges }) {
     handleSubmit,
   } = useFormLogic(initialInputs, handleExperienceInfoChanges);
 
-  const headingExperienceIcon = getComponentIcon();
   const title = "Experience";
   // last 2 line - by the keys of the inputVaLUES
 
@@ -86,7 +86,7 @@ export default function Experience({ handleExperienceInfoChanges }) {
     <div className="experience_component">
       <FormHeader
         title={title}
-        icon={headingExperienceIcon}
+        icon={<SvgIcon name="experience" />}
         toggleForm={toggleForm}
       />
       {showForm && (
@@ -101,22 +101,4 @@ export default function Experience({ handleExperienceInfoChanges }) {
       )}
     </div>
   );
-}
-
-function getComponentIcon() {
-  const jobExperienceIcon = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      className="icon"
-    >
-      <path
-        className="icon"
-        d="M16 8c0-2.21-1.79-4-4-4S8 5.79 8 8v4H6v10h12V12h-2V8zm-4-2c1.1 0 2 .9 2 2v4H10V8c0-1.1.9-2 2-2z"
-      />
-    </svg>
-  );
-  return jobExperienceIcon;
 }
