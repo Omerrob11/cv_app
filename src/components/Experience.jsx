@@ -5,7 +5,7 @@ import { SaveButton } from "./form-comp/buttons";
 import Footer from "./form-comp/footerForm";
 import "../styles/form-style.css";
 
-export default function Experience(handleExperienceInfoChanges) {
+export default function Experience({ handleExperienceInfoChanges }) {
   const initialInputs = [
     { jobTitle: "", id: crypto.randomUUID() },
     { company: "", id: crypto.randomUUID() },
