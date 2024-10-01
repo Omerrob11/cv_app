@@ -28,22 +28,26 @@ function App() {
   }
 
   return (
-    <>
-      {educationData.length > 0 && (
-        <ShowCv compData={educationData} title="Education Information" />
-      )}
+    <div className="cv-app-container">
+      <div className="cv-input-column">
+        <PersonalInfo handlePersonalInfoChanges={handlePersonalInfoChanges} />
+        <Education handleEducationInfoChanges={handleEducationInfoChanges} />
+        <Experience handleExperienceInfoChanges={handleExperienceInfoChanges} />
+      </div>
 
-      <Education handleEducationInfoChanges={handleEducationInfoChanges} />
-      <PersonalInfo handlePersonalInfoChanges={handlePersonalInfoChanges} />
-      {personalData.length > 0 && (
-        <ShowCv compData={personalData} title="Personal Information" />
-      )}
+      <div className="cv-display-column">
+        {personalData.length > 0 && (
+          <ShowCv compData={personalData} title="Personal Information" />
+        )}
+        {educationData.length > 0 && (
+          <ShowCv compData={educationData} title="Education Information" />
+        )}
 
-      <Experience handleExperienceInfoChanges={handleExperienceInfoChanges} />
-      {experienceData.length > 0 && (
-        <ShowCv compData={experienceData} title="Job Expirence" />
-      )}
-    </>
+        {experienceData.length > 0 && (
+          <ShowCv compData={experienceData} title="Job Expirence" />
+        )}
+      </div>
+    </div>
   );
 }
 
