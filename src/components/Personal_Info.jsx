@@ -7,6 +7,7 @@ import "../styles/form-style.css";
 import { SvgIcon } from "./SvgIcon";
 
 function PersonalInfo({ handlePersonalInfoChanges }) {
+  const amit = "s";
   const initialInputs = [
     { name: "", id: crypto.randomUUID() },
     { email: "", id: crypto.randomUUID() },
@@ -84,12 +85,3 @@ function PersonalInfo({ handlePersonalInfoChanges }) {
 }
 
 export default PersonalInfo;
-
-// DECONSTRUCTING PATTERN:
-//name of the assigment should match the property names in the returned object
-// than, we can use them when needed.
-// the idea of deconstruct - is that you would use them in your code
-
-// idea of custom hooks:
-// seperate the renderlogic and state managment to another component
-// you will responsbile for only the UI

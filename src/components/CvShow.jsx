@@ -22,7 +22,3 @@ function ShowCv({ compData, title }) {
 }
 
 export default ShowCv;
-
-// problem at hand:
-// I have a object with a bunch of stuff
-// I need the

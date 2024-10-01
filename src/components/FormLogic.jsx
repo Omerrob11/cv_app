@@ -52,18 +52,3 @@ export default function useFormLogic(initialInputs, handleInfoChanges) {
     toggleForm,
   };
 }
-
-// one for the form logic.
-// one for the heading / icon
-// one for the config?
-// we want that the state here, will be updated.
-// or - we can put the state in the hooks maybe? and change it there?
-
-// using custom hooks:
-// is to take the rendering logic, make it reusable.
-// meaning - the component that use it is not responsbile for the logic
-
-// meaning:
-// custom hooks are managing the state
-// component that use that are focusing on the UI - not cared about how the state is managed.
-//custom hooks should manage the state!

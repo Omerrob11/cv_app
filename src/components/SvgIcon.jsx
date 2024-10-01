@@ -20,8 +20,6 @@ const IconMap = {
 };
 
 function SvgIcon({ name, className = "icon", size = 24 }) {
-  //   console.log(name);
-  //   console.log(iconPath);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,9 +34,3 @@ function SvgIcon({ name, className = "icon", size = 24 }) {
 }
 
 export { SvgIcon };
-
-// finish with the svg component
-// finish with the expiernce component
-// check for the state structure - think about your state
-// style it beautiful
-// upload it

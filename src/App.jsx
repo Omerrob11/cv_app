@@ -4,7 +4,6 @@ import ShowCv from "./components/CvShow";
 import Education from "./components/Education";
 import PersonalInfo from "./components/Personal_Info";
 import Experience from "./components/Experience";
-
 function App() {
   // it's an array at the end - so, needs to changes it to array.
   // empty array could do it.
@@ -37,10 +36,13 @@ function App() {
       <Education handleEducationInfoChanges={handleEducationInfoChanges} />
       <PersonalInfo handlePersonalInfoChanges={handlePersonalInfoChanges} />
       {personalData.length > 0 && (
-        <ShowCv compData={personalData} title="Personal Information 2" />
+        <ShowCv compData={personalData} title="Personal Information" />
       )}
 
       <Experience handleExperienceInfoChanges={handleExperienceInfoChanges} />
+      {experienceData.length > 0 && (
+        <ShowCv compData={experienceData} title="Job Expirence" />
+      )}
     </>
   );
 }
