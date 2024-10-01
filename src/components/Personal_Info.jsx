@@ -7,7 +7,6 @@ import "../styles/form-style.css";
 import { SvgIcon } from "./SvgIcon";
 
 function PersonalInfo({ handlePersonalInfoChanges }) {
-  const amit = "s";
   const initialInputs = [
     { name: "", id: crypto.randomUUID() },
     { email: "", id: crypto.randomUUID() },
